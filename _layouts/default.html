@@ -45,6 +45,22 @@
 
       {{ content }}
 Bine ai venit la lab <button onclick="alertCookie()">Show cookies</button>
+        
+        <button onclick="showCookies()">Show cookies</button>
+
+<button onclick="clearOutputCookies()">Clear</button>
+
+<div>
+  <code id="cookies"></code>
+</div>
+        <button onclick="showCookieValue()">Show cookie value</button>
+
+<button onclick="clearOutputCookieValue()">Clear</button>
+
+<div>
+  <code id="cookie-value"></code>
+</div>
+        
       </section>
       <footer>
         {% if site.github.is_project_page %}
@@ -55,5 +71,18 @@ Bine ai venit la lab <button onclick="alertCookie()">Show cookies</button>
     </div>
     <script> document.cookie = "session=test GDPR"; document.cookie = "favorite_task=collect Data"; function alertCookie() { alert(document.cookie); } </script> 
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>document.cookie = "name=oeschger; SameSite=None; Secure";
+document.cookie = "favorite_food=tripe; SameSite=None; Secure";
+
+function showCookies() {
+  const output = document.getElementById("cookies");
+  output.textContent = `> ${document.cookie}`;
+}
+
+function clearOutputCookies() {
+  const output = document.getElementById("cookies");
+  output.textContent = "";
+}
+    </script>
   </body>
 </html>
